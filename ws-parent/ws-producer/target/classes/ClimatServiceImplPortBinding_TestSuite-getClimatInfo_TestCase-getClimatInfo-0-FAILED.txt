@@ -1,0 +1,46 @@
+Status: FAILED
+Time Taken: 152
+Size: 0
+Timestamp: Thu Mar 02 20:52:30 CET 2017
+TestStep: getClimatInfo
+
+----------------- Messages ------------------------------
+org.apache.xmlbeans.impl.values.XmlValueOutOfRangeException: string value 'No Authorization' is not a valid enumeration value for type of authType element in Credentials in namespace http://eviware.com/soapui/config
+
+----------------- Properties ------------------------------
+Endpoint: http://localhost:8009/ws-producer/ws-producer
+Encoding: UTF-8
+
+---------------- Request ---------------------------
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:clim="/entities/climat">
+   \r
+   <soapenv:Header/>
+   \r
+   <soapenv:Body>
+      \r
+      <clim:RequestClimat>
+         \r
+         <clim:country>
+            \r
+            <clim:nameCountry>Belgium</clim:nameCountry>
+            \r
+            <clim:codeCountry>BEL</clim:codeCountry>
+            \r
+            <clim:month>
+               \r
+               <clim:nameMonth>januari</clim:nameMonth>
+               \r
+               <clim:numberMonth>12</clim:numberMonth>
+               \r
+            </clim:month>
+            \r
+         </clim:country>
+         \r
+      </clim:RequestClimat>
+      \r
+   </soapenv:Body>
+   \r
+</soapenv:Envelope>
+
+---------------- Response --------------------------
+- missing response / garbage collected -

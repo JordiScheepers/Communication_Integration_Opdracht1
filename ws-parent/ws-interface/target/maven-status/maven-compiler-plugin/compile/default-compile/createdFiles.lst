@@ -1,0 +1,13 @@
+nl\hu\fnt\gsos\wsinterface\RequestClimat$Country.class
+nl\hu\fnt\gsos\wsinterface\ResponseClimat$Climat.class
+nl\hu\fnt\gsos\wsinterface\Inputfault.class
+nl\hu\fnt\gsos\wsinterface\ResponseClimat$Climat$Country.class
+nl\hu\fnt\gsos\wsinterface\Fault.class
+nl\hu\fnt\gsos\wsinterface\RequestClimat$Country$Month.class
+nl\hu\fnt\gsos\wsinterface\ObjectFactory.class
+nl\hu\fnt\gsos\wsinterface\ClimatServiceInterface.class
+nl\hu\fnt\gsos\wsinterface\ClimatService.class
+nl\hu\fnt\gsos\wsinterface\package-info.class
+nl\hu\fnt\gsos\wsinterface\ResponseClimat$Climat$Month.class
+nl\hu\fnt\gsos\wsinterface\ResponseClimat.class
+nl\hu\fnt\gsos\wsinterface\RequestClimat.class

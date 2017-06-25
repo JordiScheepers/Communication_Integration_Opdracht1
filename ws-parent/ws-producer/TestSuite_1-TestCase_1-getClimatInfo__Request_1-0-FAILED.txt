@@ -1,0 +1,66 @@
+Status: FAILED
+Time Taken: 237
+Size: 486
+Timestamp: Sat Mar 04 08:46:11 CET 2017
+TestStep: getClimatInfo - Request 1
+
+----------------- Messages ------------------------------
+[Contains] Missing token [ns2:climat] in Response
+
+----------------- Properties ------------------------------
+Endpoint: http://localhost:8009/ws-producer/ws-producer
+Encoding: UTF-8
+
+---------------- Request ---------------------------
+Request Headers: SOAPAction : ""
+Connection : Keep-Alive
+User-Agent : Apache-HttpClient/4.1.1 (java 1.5)
+Host : localhost:8009
+Accept-Encoding : gzip,deflate
+Content-Length : 573
+Content-Type : text/xml;charset=UTF-8
+
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:clim="/entities/climat">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <clim:RequestClimat>
+         <clim:country>
+            <clim:nameCountry>Belgium</clim:nameCountry>
+            <clim:codeCountry>BEL</clim:codeCountry>
+            <clim:month>
+               <clim:nameMonth>januari</clim:nameMonth>
+               <clim:numberMonth>1</clim:numberMonth>
+            </clim:month>
+         </clim:country>
+      </clim:RequestClimat>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+---------------- Response --------------------------
+Response Headers: Transfer-Encoding : chunked
+Server : Apache-Coyote/1.1
+#status# : HTTP/1.1 200 OK
+Date : Sat, 04 Mar 2017 07:46:12 GMT
+Content-Type : text/xml;charset=utf-8
+
+
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+   <S:Body>
+      <ResponseClimat xmlns="/entities/climat" xmlns:ns2="http://nl.hu.fnt.gsos/ClimatService/fault">
+         <climat>
+            <country>
+               <nameCountry>Belgium</nameCountry>
+            </country>
+            <month>
+               <nameMonth>januari</nameMonth>
+               <numberMonth>0</numberMonth>
+            </month>
+            <maxTemp>5</maxTemp>
+            <minTemp>0</minTemp>
+            <meanSunDays>20</meanSunDays>
+            <meanRainDays>2</meanRainDays>
+         </climat>
+      </ResponseClimat>
+   </S:Body>
+</S:Envelope>

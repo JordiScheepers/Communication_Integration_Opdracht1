@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="/entities/climat" xmlns:tns="/entities/climat"
+	elementFormDefault="qualified">
+	<!-- Define Groups -->
+	<xsd:group name="month">
+		<xsd:sequence>
+			<xsd:element ref="tns:nameMonth" />
+			<xsd:element ref="tns:numberMonth" />
+		</xsd:sequence>
+	</xsd:group>
+
+	<xsd:group name="country">
+		<xsd:sequence>
+			<xsd:element ref="tns:nameCountry" />
+			<xsd:element ref="tns:codeCountry" />
+			<xsd:element name="month">
+				<xsd:complexType>
+					<xsd:group ref="tns:month"></xsd:group>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:group>
+	<!-- End Groups -->
+
+	<!-- Request -->
+	<xsd:element name="RequestClimat">
+		<xsd:complexType>
+			<xsd:sequence>
+				<!-- Country element -->
+				<xsd:sequence>
+					<xsd:element name="country">
+						<xsd:complexType>
+							<xsd:group ref="tns:country"></xsd:group>
+						</xsd:complexType>
+					</xsd:element>
+					<!-- month element -->
+
+				</xsd:sequence>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<!-- Request ends -->
+
+	<!-- Response -->
+	<xsd:element name="ResponseClimat">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="climat">
+					<xsd:complexType>
+						<xsd:sequence>
+							<!-- Country element -->
+							<xsd:element name="country">
+								<xsd:complexType>
+									<xsd:group ref="tns:country"></xsd:group>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="month">
+								<xsd:complexType>
+									<xsd:group ref="tns:month"></xsd:group>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element ref="tns:maxTemp" />
+							<xsd:element ref="tns:minTemp" />
+							<xsd:element ref="tns:meanSunDays" />
+							<xsd:element ref="tns:meanRainDays" />
+							<xsd:choice>
+								<xsd:element ref="tns:seaTemp" />
+							</xsd:choice>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<!-- Response ends -->
+
+	<!-- Elements defined -->
+	<xsd:element name="nameCountry">
+		<xsd:simpleType>
+			<!-- Name must be a letter -->
+			<xsd:restriction base="xsd:string">
+				<xsd:pattern value="[A-Za-z]"></xsd:pattern>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+
+	<xsd:element name="codeCountry">
+		<xsd:simpleType>
+			<!-- code must be a letter and length of 3 -->
+			<xsd:restriction base="xsd:string">
+				<xsd:length value="3"></xsd:length>
+				<xsd:pattern value="[A-Z]"></xsd:pattern>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+
+	<xsd:element name="nameMonth">
+		<xsd:simpleType>
+			<!-- month name must be a letter -->
+			<xsd:restriction base="xsd:string">
+				<xsd:pattern value="[A-Za-z]"></xsd:pattern>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+
+	<xsd:element name="maxTemp">
+		<xsd:simpleType>
+			<!-- maxTemp may consist of 123456789 -->
+			<xsd:restriction base="xsd:int">
+				<xsd:pattern value="[0-9]"></xsd:pattern>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+
+	<xsd:element name="minTemp">
+		<xsd:simpleType>
+			<!-- minTemp may consist of 123456789 -->
+			<xsd:restriction base="xsd:int">
+				<xsd:pattern value="[0-9]"></xsd:pattern>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+
+	<xsd:element name="meanSunDays">
+		<xsd:simpleType>
+			<!-- meanSunDays may consist of 123456789 -->
+			<xsd:restriction base="xsd:int">
+				<xsd:pattern value="[0-9]"></xsd:pattern>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+
+	<xsd:element name="meanRainDays">
+		<xsd:simpleType>
+			<!-- meanRainDays may consist of 123456789 -->
+			<xsd:restriction base="xsd:int">
+				<xsd:pattern value="[0-9]"></xsd:pattern>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+
+	<xsd:element name="seaTemp">
+		<xsd:simpleType>
+			<!-- seaTemp may consist of 123456789 -->
+			<xsd:restriction base="xsd:int">
+				<xsd:pattern value="[0-9]"></xsd:pattern>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+
+	<xsd:element name="numberMonth">
+		<xsd:simpleType>
+			<!-- number must be between 1 to 12 -->
+			<xsd:restriction base="xsd:int">
+				<xsd:minInclusive value="1" />
+				<xsd:maxInclusive value="12" />
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+
+	<!-- Elements end -->
+</xsd:schema>
